@@ -1,0 +1,1 @@
+{"version":3,"sources":["scripts/index.js"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AACA;AACA","file":"9f874e9aa5d489ddf3f718bec50e7cbe.map","sourcesContent":["let a = 'test';\nconsole.log(a);\n"]}
