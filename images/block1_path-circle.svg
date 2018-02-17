@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="205.5" viewBox="0 0 32 205.5">
+<defs>
+    <style>
+      .cls-1, .cls-2 {
+        fill: none;
+        stroke: #fff;
+      }
+
+      .cls-1 {
+        stroke-width: 2px;
+        filter: url(#filter);
+      }
+
+      .cls-2 {
+        stroke-width: 1px;
+        opacity: 0.5;
+      }
+    </style>
+    <filter id="filter" x="1" y="1" width="30" height="30" filterUnits="userSpaceOnUse">
+      <feGaussianBlur result="blur" stdDeviation="1.667" in="SourceAlpha"/>
+      <feComposite result="composite"/>
+      <feComposite result="composite-2"/>
+      <feComposite result="composite-3"/>
+      <feFlood result="flood" flood-color="#fff" flood-opacity="0.5"/>
+      <feComposite result="composite-4" operator="in" in2="composite-3"/>
+      <feBlend result="blend" in2="SourceGraphic"/>
+      <feBlend result="blend-2" in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g style="fill: none; filter: url(#filter)">
+    <circle id="ellipse" class="cls-1" cx="15.5" cy="15.5" r="10.5" style="stroke: inherit; filter: none; fill: inherit"/>
+  </g>
+  <use xlink:href="#ellipse" style="stroke: #fff; filter: none; fill: none"/>
+  <rect class="cls-2" x="15" y="26" width="1" height="179"/>
+</svg>
