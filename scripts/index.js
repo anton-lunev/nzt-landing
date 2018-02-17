@@ -1,6 +1,8 @@
 import '../styles/main.less';
 import '../styles/block-1.less';
 import '../styles/block-2.less';
+import '../styles/block-3.less';
+import '../styles/block-4.less';
 
 
 class Slider {
