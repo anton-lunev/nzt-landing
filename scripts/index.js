@@ -1,2 +1,2 @@
-let a = 'test';
-console.log(a);
+import '../styles/main.less';
+import '../styles/block-1.less';
