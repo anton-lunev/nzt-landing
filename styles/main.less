@@ -4,6 +4,10 @@ body, html {
   font-family: 'Montserrat', sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .block {
   --angle-param: 300px;
   --angle-coord: ~'calc(100% - var(--angle-param))';
@@ -16,4 +20,5 @@ body, html {
 .container {
   width: 1170px;
   position: relative;
+  max-width: 100%;
 }

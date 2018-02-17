@@ -1,12 +1,30 @@
 .block-1 {
+  --side-padding: 78px;
   clip-path: polygon(0 0, 100% 0, 100% var(--angle-coord), 0% 100%);
   background: url("../images/bg-first-screen.jpg") top center;
   background-size: cover;
   min-height: 1800px;
 
+  &__container {
+    width: 1326px;
+  }
+
   &__header {
-    margin-top: 40px;
+    margin-top: 55px;
     width: 100%;
+    padding: 0 var(--side-padding);
+  }
+
+  &__content {
+    padding: 0 var(--side-padding);
+    margin-top: 225px;
+    margin-bottom: 436px;
+  }
+
+  &__slider {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
 }
 
@@ -14,15 +32,171 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 500;
+
+  &__logo {
+    flex: .3;
+  }
+  &__menu {
+    flex: 1;
+  }
 }
 
 .menu {
+  display: flex;
   &__item {
     color: #fff;
+    text-decoration: none;
+    margin: 0 20px;
   }
 }
 
 .auth {
   color: #fff;
+  text-decoration: none;
+  position: relative;
+
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: -4px;
+    border-top: solid 1px;
+    border-color: #fff;
+  }
 }
+
+.b1-content {
+  &__logo {
+    margin-bottom: 58px;
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 150px;
+  }
+
+  &__text {
+    color: #fff;
+    font-size: 35px;
+    flex-basis: 62%;
+    font-weight: 500;
+    margin: 10px 0 0 0;
+    line-height: 50px;
+  }
+
+  &__video {
+    margin-right: 86px;
+  }
+
+  &__app-links {
+    display: flex;
+  }
+}
+
+.video {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  &__button {
+    margin-right: 27px;
+  }
+  &__title {
+    font-size: 22px;
+    font-weight: 500;
+  }
+}
+
+.app-links {
+  display: flex;
+  align-items: center;
+  background: #252d34;
+  border-radius: 3px;
+  padding: 20px 28px;
+
+  &__title {
+    color: #fff;
+    font-weight: 500;
+    margin-right: 40px;
+  }
+  &__button {
+    line-height: 0;
+  }
+  &__button + &__button {
+    margin-left: 30px;
+  }
+}
+
+.b1-slider {
+  display: flex;
+  --animation-time: 400ms;
+
+  &__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 0;
+    outline: none;
+
+    &--left {
+
+    }
+    &--right {
+      transform: rotate(180deg);
+    }
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 980px;
+  }
+  &__slide {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    display: none;
+    &.active {
+      display: block;
+      animation: slide var(--animation-time) 1 forwards;
+
+      &.remove {
+        animation: slideOut var(--animation-time) 1 forwards;
+      }
+    }
+  }
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+.figure {
+  filter: drop-shadow(0px 34px 29px rgba(0, 0, 0, .4));
+  position: absolute;
+  bottom: 300px;
+}
+
