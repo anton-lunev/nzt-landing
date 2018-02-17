@@ -1,14 +1,11 @@
 
-
 .block-2 {
-  --top-margin: 270px;
 
-
-  margin-top: calc(var(--top-margin) * -1);
-  clip-path: polygon(0 15%, 100% 0, 100% 85%, 0% 100%);
+  margin-top: calc(var(--angle-param) * -1);
+  clip-path: polygon(0 var(--angle-param), 100% 0, 100% var(--angle-coord), 0% 100%);
   background: url("../images/block2_bg.jpg") top center;
   background-size: cover;
-  padding: ~'calc(var(--top-margin) + 10vh)' 0 ~'calc(var(--top-margin) + 10vh)';
+  padding: ~'calc(var(--angle-param) + 40px)' 0 ~'calc(var(--angle-param) + 70px)';
   align-items: flex-start;
 
   &__container {
