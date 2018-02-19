@@ -15,6 +15,8 @@ export class Slider {
   init() {
     this.buttonPrev.addEventListener('click', () => this.prev());
     this.buttonNext.addEventListener('click', () => this.next());
+
+    setInterval(() => this.next(), 4000);
   }
 
   next() {
