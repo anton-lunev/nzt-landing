@@ -1,0 +1,66 @@
+@keyframes slide {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+.slider {
+  display: flex;
+  --animation-time: 400ms;
+
+  &__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    line-height: 0;
+    outline: none;
+    color: #fff;
+
+    &--left {
+
+    }
+    &--right {
+      transform: rotate(180deg);
+    }
+  }
+  &__content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 980px;
+  }
+  &__slide {
+    color: #fff;
+    font-size: 24px;
+    font-weight: 500;
+    display: none;
+    text-align: center;
+
+    &.active {
+      display: block;
+      animation: slide var(--animation-time) 1 forwards;
+
+      &.remove {
+        animation: slideOut var(--animation-time) 1 forwards;
+      }
+    }
+  }
+}
