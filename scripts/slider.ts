@@ -12,11 +12,12 @@ function parseDom(string: string): HTMLElement {
 }
 
 enum selectors {
-  slider = 'slider',
   active = 'active',
   remove = 'remove',
+  slider = 'slider',
   sliderContent = 'slider__content',
-  sliderSlide = 'slider__slide'
+  sliderSlide = 'slider__slide',
+  sliderButton = 'slider__button'
 }
 
 export class Slider {
@@ -41,11 +42,13 @@ export class Slider {
     this.container.firstElementChild.classList.add(selectors.sliderContent);
     Array.from(this.slides).forEach(elem => elem.classList.add(selectors.sliderSlide));
 
+    this.container.querySelectorAll(`.${selectors.sliderButton}`).forEach(el => el.remove());
     this.container.appendChild(this.buttonNext);
     this.container.insertBefore(this.buttonPrev, this.container.firstElementChild);
 
     this.container.style.setProperty('--animation-time', `${this.animationTime}ms`);
 
+    this.restartTimer();
     this.subscribe();
   }
 
@@ -57,6 +60,15 @@ export class Slider {
   private subscribe() {
     this.buttonPrev.addEventListener('click', this.prev);
     this.buttonNext.addEventListener('click', this.next);
+    this.container.addEventListener('mouseover', () => this.stopTimer());
+    this.container.addEventListener('mouseout', () => this.restartTimer());
+  }
+
+  destroy() {
+    this.buttonPrev.removeEventListener('click', this.prev);
+    this.buttonNext.removeEventListener('click', this.next);
+    this.container.removeEventListener('mouseover', this.stopTimer);
+    this.container.removeEventListener('mouseout', this.restartTimer);
   }
 
   next = () => {
@@ -81,8 +93,12 @@ export class Slider {
     this.restartTimer();
   }
 
-  private restartTimer() {
+  private stopTimer = () => {
     if (this.timer) clearInterval(this.timer);
+  };
+
+  private restartTimer = () => {
+    this.stopTimer();
     this.timer = setInterval(this.next, 4000);
   }
 }

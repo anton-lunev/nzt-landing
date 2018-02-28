@@ -8,5 +8,5 @@ import '../styles/block-5.less';
 
 import {Slider} from "./slider";
 
-new Slider('.b1-slider');
-new Slider('.b3-slider');
+const slider1 = new Slider('.b1-slider');
+const slider2 = new Slider('.b3-slider');
