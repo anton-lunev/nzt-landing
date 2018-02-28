@@ -5,6 +5,7 @@ import '../styles/block-2.less';
 import '../styles/block-3.less';
 import '../styles/block-4.less';
 import '../styles/block-5.less';
+import '../styles/block-6.less';
 
 import {Slider} from "./slider";
 

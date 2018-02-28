@@ -1,0 +1,32 @@
+
+.block-6 {
+  margin-top: calc(var(--angle-param) * -1);
+  padding: ~'calc(var(--angle-param) + 40px)' 0 ~'calc(var(--angle-param) + 70px)';
+  clip-path: polygon(0 0, 100% var(--angle-param), 100% 100%, 0% var(--angle-coord));
+  background: #ffffff url("../images/block-6/block-6-bg.png") right bottom no-repeat;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    width: 622px;
+    margin-left: 20px;
+  }
+
+  &__top {
+    display: flex;
+  }
+
+  &__top-left {
+    flex-shrink: 0;
+  }
+
+  &__top-right {
+    margin-left: 90px;
+    font-size: 30px;
+    line-height: 45px;
+  }
+
+
+}
