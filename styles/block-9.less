@@ -1,7 +1,9 @@
+@import "./variables";
+
 
 .block-9 {
   margin-top: calc(var(--angle-param) * -1);
-  padding: ~'calc(var(--angle-param) + 40px)' 0 ~'calc(var(--angle-param) + 70px)';
+  padding: ~'calc(var(--angle-param) + 40px)' 0 0;
   clip-path: polygon(0 0, 100% var(--angle-param), 100% 100%, 0% 100%);
   background: #181c20 url("../images/block-9/block-9-bg.png") left bottom no-repeat;
   position: relative;
@@ -10,8 +12,31 @@
   justify-content: center;
 
   &__container {
-    width: 622px;
-    height: 700px;
-    margin-left: 20px;
+
+    @media (min-width: @media-normal) {
+      width: 1165px;
+    }
+  }
+
+  &__footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 35px 0;
+  }
+}
+
+.block-9-copyright {
+  color: #ffffff;
+  opacity: 0.7;
+  font-size: 16px;
+  line-height: 35px;
+  font-weight: 200;
+  text-align: center;
+
+  @media (min-width: @media-medium) {
+    text-align: left;
+  }
+
+  simbol {
+    margin: 0 7px;
   }
 }
