@@ -1,5 +1,6 @@
 import '../styles/main.less';
 import '../styles/slider.less';
+import '../styles/parallax.less';
 import '../styles/block-1.less';
 import '../styles/block-2.less';
 import '../styles/block-3.less';
