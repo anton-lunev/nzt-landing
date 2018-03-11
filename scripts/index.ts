@@ -6,8 +6,15 @@ import '../styles/block-3.less';
 import '../styles/block-4.less';
 import '../styles/block-5.less';
 import '../styles/block-6.less';
+import '../styles/block-7.less';
+import '../styles/block-8.less';
+import '../styles/block-9.less';
 
 import {Slider} from "./slider";
+import {Parallax} from "./parallax";
 
 const slider1 = new Slider('.b1-slider');
-const slider2 = new Slider('.b3-slider');
+const slider3 = new Slider('.b3-slider');
+const slider4 = new Slider('.b4-slider');
+
+new Parallax();
