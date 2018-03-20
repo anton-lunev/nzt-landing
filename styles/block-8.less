@@ -1,6 +1,8 @@
+@import "./variables";
+
 .block-8 {
   margin-top: calc(var(--angle-param) * -1);
-  padding: ~'calc(var(--angle-param) + 40px)' 0 ~'calc(var(--angle-param) + 70px)';
+  padding: ~'calc(var(--angle-param) + 40px)' 0 ~'calc(var(--angle-param)/2)';
   clip-path: polygon(0 var(--angle-param), 100% 0, 100% 100%, 0% var(--angle-coord));
   background: #ffffff right bottom no-repeat;
   position: relative;
@@ -8,16 +10,48 @@
   align-items: center;
   justify-content: center;
 
+  @media (min-width: @media-medium) {
+    padding-bottom:  ~'calc(var(--angle-param) + 70px)';
+  }
+
+
   &__container {
-    width: 1180px;
-    height: 700px;
-    margin-left: 20px;
+    width: 85%;
     display: flex;
-    padding-top: 130px;
+    flex-direction: column-reverse;
+
+    @media (min-width: @media-small) {
+      flex-direction: row;
+      height: 640px;
+      margin-left: 20px;
+      padding-top: 130px;
+    }
+    @media (min-width: @media-normal) {
+      width: 1180px;
+      height: 800px;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  &__slider {
+    @media (min-width: @media-medium) {
+      margin-right: 3%;
+    }
+    @media (min-width: @media-large) {
+      margin-right: 100px;
+    }
   }
 }
 
 .b8-desc {
+  margin-bottom: 50px;
+  @media (min-width: @media-medium) {
+    margin-bottom: 0;
+  }
+
   &__title {
     margin-bottom: 60px;
   }
@@ -37,38 +71,46 @@
 }
 
 .b8-slider {
-  background: no-repeat;
-  width: 300px;
-  height: 800px;
   flex: 1;
+  margin-left: -11%;
+
+  @media (min-width: @media-medium) {
+    margin-left: 0;
+  }
 }
 
 .b8-prlx {
-  &-1 {
+  display: none;
+
+  @media (min-width: @media-medium) {
+    display: block;
+  }
+
+  &--1 {
     bottom: 30px;
     right: 30%;
   }
-  &-2 {
+  &--2 {
     bottom: 250px;
     left: 10%;
   }
-  &-3 {
+  &--3 {
     top: -120px;
     left: 43%;
   }
-  &-4 {
+  &--4 {
     bottom: 400px;
     right: 0;
   }
-  &-5 {
+  &--5 {
     top: -150px;
     right: 26%;
   }
-  &-6 {
+  &--6 {
     top: 200px;
     left: 0;
   }
-  &-7 {
+  &--7 {
     top: -40px;
     right: 3%;
   }
