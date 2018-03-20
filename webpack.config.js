@@ -1,11 +1,19 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const path = require('path');
+
+const extractLess = new ExtractTextPlugin({
+  filename: "styles.[contenthash].css",
+  allChunks: true
+  // disable: process.env.NODE_ENV === "development"
+});
 
 module.exports = {
   entry: './scripts/index.ts',
+  devtool: "inline-source-map",
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.[contenthash].js'
   },
   resolve: {
     extensions: [".ts", ".js"]
@@ -14,12 +22,15 @@ module.exports = {
     rules: [
       {test: /\.ts/, use: 'ts-loader'},
       {
-        test: /\.less/, use: [
-          {loader: "style-loader"},
-          {loader: "css-loader"},
-          {loader: "postcss-loader"},
-          {loader: "less-loader"}
-        ]
+        test: /\.less/,
+        use: extractLess.extract({
+          use: [
+            {loader: "css-loader"},
+            {loader: "postcss-loader"},
+            {loader: "less-loader"}
+          ],
+          fallback: "style-loader"
+        })
       },
       {
         test: /\.html$/,
@@ -38,6 +49,7 @@ module.exports = {
   },
   plugins: [
     // new webpack.optimize.UglifyJsPlugin(),
-    new HtmlWebpackPlugin({template: './index.html'})
+    new HtmlWebpackPlugin({template: './index.html'}),
+    extractLess
   ]
 };

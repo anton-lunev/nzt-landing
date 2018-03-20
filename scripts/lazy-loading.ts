@@ -31,16 +31,18 @@ export class LazyLoading {
     const winY = scrollY;
     const winBottom = winY + this.winHeight;
     const winPos = {winY, winBottom};
-    this.items.forEach(el => this.loadItem(el, winPos));
+    for (let i = this.items.length - 1; i >= 0; i--) {
+      this.loadItem(this.items[i], winPos)
+    }
   };
 
   loadItem(item: imgItem, winPos) {
     const el = item.el;
     const imgY = this.getTopCoord(el);
-    const offset = 400;
+    const offset = 800;
 
     // If block is shown on screen
-    if (winPos.winBottom + offset > imgY && winPos.winY - offset < imgY) {
+    if (winPos.winBottom + offset > imgY && winPos.winY - offset < imgY + item.el.offsetHeight) {
       this.items.splice(this.items.indexOf(item), 1);
       this.itemsInProgress.push(item);
       this.downloadImg(item);
