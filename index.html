@@ -353,21 +353,21 @@
       <form class="block-9__form block-9-form">
         <div class="block-9-form__title">Подписаться</div>
         <div class="block-9-form__group">
-          <input type="text" class="block-9-form__input" placeholder="e-mail">
-          <button class="block-9-form__button" type="submit">GO</button>
+          <input type="text" class="input block-9-form__input" placeholder="e-mail">
+          <button class="button block-9-form__button" type="button" show-modal>GO</button>
         </div>
       </form>
       <form class="block-9__form block-9-form">
         <div class="block-9-form__title">Инвестиции</div>
         <div class="block-9-form__group">
-          <input type="text" class="block-9-form__input" placeholder="Телефон">
-          <button class="block-9-form__button" type="submit">GO</button>
+          <input type="text" class="input block-9-form__input" placeholder="Телефон">
+          <button class="button block-9-form__button" type="button" show-modal>GO</button>
         </div>
       </form>
       <form class="block-9__form block-9-form">
         <div class="block-9-form__title">Поддержать проект</div>
         <div class="block-9-form__group">
-          <input type="text" class="block-9-form__input" value="1H7wFtroHBxbKctf8d6dmjuRbxHkrcUky1" readonly>
+          <input type="text" class="input block-9-form__input" value="1H7wFtroHBxbKctf8d6dmjuRbxHkrcUky1" readonly>
         </div>
       </form>
     </div>
@@ -378,6 +378,19 @@
       </div>
     </div>
 
+  </div>
+</div>
+
+<div class="backdrop" id="modal">
+  <div class="modal">
+    <button class="modal__close"><img src="images/modal/x.svg"/></button>
+    <h3 class="modal__header">
+      Больше новостей в нашем телеграм канале
+    </h3>
+    <img src="images/modal/telegram-icon.png" class="modal__icon" width="95" height="95"/>
+    <input class="input modal__input" placeholder="E-mail"/>
+    <input class="input modal__input" placeholder="Телефон"/>
+    <button class="button modal__subscribe">подписаться</button>
   </div>
 </div>
 
