@@ -13,7 +13,6 @@ export class LazyLoading {
     Array.from(document.querySelectorAll(selector)).forEach((el: HTMLImageElement) => {
       this.items.push({el, src: el.dataset.src, bg: el.dataset.bg});
     });
-    console.log(this.items);
     this.init();
   }
 
@@ -46,7 +45,6 @@ export class LazyLoading {
       this.items.splice(this.items.indexOf(item), 1);
       this.itemsInProgress.push(item);
       this.downloadImg(item);
-      console.log(item);
     }
   }
 
