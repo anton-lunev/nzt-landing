@@ -1,65 +1,188 @@
+@import "./variables";
 
 .block-5 {
   margin-top: calc(var(--angle-param) * -1);
+  z-index: 1;
   padding: ~'calc(var(--angle-param) + 40px)' 0 ~'calc(var(--angle-param) + 70px)';
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
+  clip-path: polygon(0 0, 100% var(--angle-param), 100% 100%, 0% var(--angle-coord));
 
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    clip-path: polygon(0 0, 100% var(--angle-param), 100% 100%, 0% var(--angle-coord));
-    background: #1c2127 url("../images/block-5/block5_bg.jpg") center center no-repeat;
-    background-size: cover;
+  @media (min-width: @media-normal) {
+    padding-bottom: var(--angle-param);
   }
 
+  &__wrapper {
+    position: relative;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      clip-path: polygon(0 0, 100% var(--angle-param), 100% 100%, 0% var(--angle-coord));
+      background: #1c2127 url("../images/block-5/block5_bg.jpg") left center no-repeat;
+    }
+  }
+
+
+
+
+
   &__container {
-    width: 622px;
-    margin-left: 20px;
+    width: 85%;
+
+    @media (min-width: @media-normal) {
+      width: 1110px;
+    }
   }
 
   &__circle {
-    width: 70vw;
-    height: 70vw;
-    max-width: 1323px;
-    max-height: 1323px;
-    padding-bottom: 11%;
-    background: url("../images/block-5/circle.png") no-repeat;
-    background-size: 100% auto;
-    position: absolute;
-    top: 0;
-    right: 50%;
-    transform: translateX(50%);
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+    display: none;
+    @media (min-width: @media-medium) {
+        display: block;
+        z-index: 1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 1320px;
+        height: 1320px;
+        background: url("../images/block-5/circle.png") no-repeat;
+        background-size: 100% auto;
+        transform: translate(-50%, -50%);
+    }
   }
 
-  &__logo {
-    margin-bottom: 70px;
-
-  }
 
   &__text {
     font-size: 16px;
     line-height: 2;
     color: #ffffff;
+    font-weight: 200;
+    letter-spacing: 1.1px;
   }
 
   &__top {
-    position: absolute;
-    top: -17vw;
-    left: -23vw;
+    margin-bottom: 50px;
+    margin-left: -22px;
+    position: relative;
+
+
+    @media (min-width: @media-medium) {
+      margin-bottom: 70px;
+    }
+
+    @media (min-width: @media-normal) {
+      position: absolute;
+      top: -119px;
+      left: 190px;
+    }
+
+    @media (min-width: @media-large) {
+      left: -230px;
+    }
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 50px;
+      background: #ffffff;
+      top: 14px;
+      right: ~'calc(100% - 12px)';
+    }
+
+    .block-5__text {
+      margin-left: 22px;
+    }
+
+    .block-5__point {
+      display: none;
+      @media (min-width: @media-medium) {
+        display: block;
+        position: absolute;
+        top: 6px;
+        left: -67px;
+      }
+    }
+  }
+
+  &__point {
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background: #ffffff;
+    position: relative;
+    display: inline-block;
+
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+      height: 72px;
+      width: 72px;
+      border-radius: 50%;
+      border: 1px solid #ffffff;
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%);
+
+    }
+  }
+
+  &__base {
+    margin-bottom: 50px;
+
+    @media (min-width: @media-medium) {
+      position: relative;
+      width: 622px;
+      margin: 0 auto 50px;
+    }
+    @media (min-width: @media-normal) {
+      margin: 70px auto 100px;
+      width: 800px;
+    }
+
+
+
+    .block-5__logo {
+      margin-bottom: 20px;
+      @media (min-width: @media-normal) {
+        margin-bottom: 60px;
+      }
+    }
+  }
+
+  &__bottom {
+    margin-left: -22px;
+    position: relative;
+
+    @media (min-width: @media-medium) {
+      width: 390px;
+      margin: auto;
+    }
+
+    &:before {
+      display: block;
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 50px;
+      background: #ffffff;
+      top: 14px;
+      right: ~'calc(100% - 12px)';
+
+      @media (min-width: @media-medium) {
+        display: none;
+      }
+    }
+
+    .block-5__text {
+      margin-left: 22px;
+    }
   }
 
 }

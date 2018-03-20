@@ -4,6 +4,11 @@ body, html {
   font-family: 'Montserrat', sans-serif;
 }
 
+body {
+  --angle-param: 300px;
+  --angle-coord: ~'calc(100% - var(--angle-param))';
+}
+
 * {
   box-sizing: border-box;
 }
@@ -13,13 +18,11 @@ body, html {
 }
 
 .block {
-  --angle-param: 300px;
-  --angle-coord: ~'calc(100% - var(--angle-param))';
-
-
   display: flex;
   justify-content: center;
   position: relative;
+  overflow: hidden;
+
 }
 
 .container {
