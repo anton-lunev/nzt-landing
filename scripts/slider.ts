@@ -77,7 +77,7 @@ export class Slider {
   };
 
   prev = () => {
-    const nextElement = this.activeSlide.previousElementSibling || this.slides[this.slides.length];
+    const nextElement = this.activeSlide.previousElementSibling || this.slides[this.slides.length - 1];
     this.changeActiveSlide(nextElement);
   };
 

@@ -32,11 +32,40 @@ body {
   z-index: 3;
 }
 
-
 .figure {
   filter: drop-shadow(0px 34px 29px rgba(0, 0, 0, .4));
 }
 
 .img-shadow {
   filter: drop-shadow(0px 35px 22px rgba(0, 0, 0, .1));
+}
+
+.input {
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  padding: 10px 18px;
+  font-size: 14px;
+  height: 43px;
+  transition: box-shadow .2s;
+  &:focus {
+    box-shadow: 0 0 0 2px #29bae3;
+  }
+}
+
+.button {
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #29bae3;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color .2s;
+  &:hover {
+    background-color: #29d3fc;
+  }
 }
