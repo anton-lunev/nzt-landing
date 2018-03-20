@@ -1,16 +1,17 @@
+
 interface PositionsMapItem {
   el: HTMLElement;
   speed: number;
 }
 
 export class Parallax {
-  prlxElems: NodeListOf<Element>;
+  prlxElems: Array<Element>;
   positionsMap: PositionsMapItem[] = [];
   winHeight = innerHeight;
   private positionVarName = '--position';
 
   constructor(selector?: string) {
-    this.prlxElems = document.querySelectorAll(selector || '.prlx');
+    this.prlxElems = Array.from(document.querySelectorAll(selector || '.prlx'));
     this.prlxElems.forEach((el: HTMLElement) => {
       el.style.transform = `translateY(var(${this.positionVarName})) translateZ(0)`;
       this.positionsMap.push({el, speed: +el.dataset.speed || 1})

@@ -42,7 +42,7 @@ export class Slider {
     this.container.firstElementChild.classList.add(selectors.sliderContent);
     Array.from(this.slides).forEach(elem => elem.classList.add(selectors.sliderSlide));
 
-    this.container.querySelectorAll(`.${selectors.sliderButton}`).forEach(el => el.remove());
+    Array.from(this.container.querySelectorAll(`.${selectors.sliderButton}`)).forEach(el => el.remove());
     this.container.appendChild(this.buttonNext);
     this.container.insertBefore(this.buttonPrev, this.container.firstElementChild);
 
