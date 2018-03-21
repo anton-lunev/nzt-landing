@@ -1,3 +1,5 @@
+import {getCollection, scrollHelper, WinPositions} from "./helpers";
+
 const arrowIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="39" height="39">
   <circle cx="19.5" cy="19.5" r="19" fill="none" stroke="currentColor"/>
   <path fill="currentColor" stroke="currentColor" d="M23 25.42l-1.185 1.19-7.106-7.11 7.106-7.11L23 13.58l-5.923 5.92z"/>
@@ -42,13 +44,13 @@ export class Slider {
     this.container.firstElementChild.classList.add(selectors.sliderContent);
     Array.from(this.slides).forEach(elem => elem.classList.add(selectors.sliderSlide));
 
-    Array.from(this.container.querySelectorAll(`.${selectors.sliderButton}`)).forEach(el => el.remove());
+    getCollection(`.${selectors.sliderButton}`, this.container).forEach(el => el.remove());
     this.container.appendChild(this.buttonNext);
     this.container.insertBefore(this.buttonPrev, this.container.firstElementChild);
 
     this.container.style.setProperty('--animation-time', `${this.animationTime}ms`);
 
-    this.restartTimer();
+    // this.restartTimer();
     this.subscribe();
   }
 
@@ -62,6 +64,7 @@ export class Slider {
     this.buttonNext.addEventListener('click', this.next);
     this.container.addEventListener('mouseover', () => this.stopTimer());
     this.container.addEventListener('mouseout', () => this.restartTimer());
+    scrollHelper.subscribe(this.handleScroll);
   }
 
   destroy() {
@@ -70,6 +73,21 @@ export class Slider {
     this.container.removeEventListener('mouseover', this.stopTimer);
     this.container.removeEventListener('mouseout', this.restartTimer);
   }
+
+  handleScroll = (winPos: WinPositions) => {
+    const el = this.container;
+    const imgY = scrollHelper.getTopCoord(el);
+    const imgH = el.offsetHeight;
+
+    // If block is shown on screen
+    if (winPos.winBottom > imgY && winPos.winY < imgY + imgH) {
+      if (!this.timer) {
+        this.restartTimer();
+      }
+    } else if(this.timer) {
+      this.stopTimer();
+    }
+  };
 
   next = () => {
     const nextElement = this.activeSlide.nextElementSibling || this.slides[0];
@@ -95,6 +113,7 @@ export class Slider {
 
   private stopTimer = () => {
     if (this.timer) clearInterval(this.timer);
+    this.timer = null;
   };
 
   private restartTimer = () => {

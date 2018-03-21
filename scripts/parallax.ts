@@ -1,3 +1,4 @@
+import {getCollection, scrollHelper, WinPositions} from "./helpers";
 
 interface PositionsMapItem {
   el: HTMLElement;
@@ -11,7 +12,7 @@ export class Parallax {
   private positionVarName = '--position';
 
   constructor(selector?: string) {
-    this.prlxElems = Array.from(document.querySelectorAll(selector || '.prlx'));
+    this.prlxElems = getCollection(selector || '.prlx');
     this.prlxElems.forEach((el: HTMLElement) => {
       el.style.transform = `translateY(var(${this.positionVarName})) translateZ(0)`;
       this.positionsMap.push({el, speed: +el.dataset.speed || 1})
@@ -20,28 +21,17 @@ export class Parallax {
   }
 
   init() {
-    document.addEventListener('scroll', () => requestAnimationFrame(this.handleScroll), {passive: true});
-    window.addEventListener('resize', () => {
-      this.winHeight = innerHeight;
-      requestAnimationFrame(this.handleScroll);
-    });
-    this.handleScroll();
+    scrollHelper.subscribe(this.handleScroll);
   }
 
-  private handleScroll = () => {
-    const winY = scrollY;
-    const winBottom = winY + this.winHeight;
-    const winPos = {winY, winBottom};
-
-    this.positionsMap.forEach((item) => {
-      this.parallaxItem(item, winPos);
-    });
+  private handleScroll = (winPos: WinPositions) => {
+    this.positionsMap.forEach(item => this.parallaxItem(item, winPos));
   };
 
-  private parallaxItem(item: PositionsMapItem, winPos) {
+  private parallaxItem(item: PositionsMapItem, winPos: WinPositions) {
     const el = item.el;
     const speed = item.speed;
-    const imgY = this.getTopCoord(el);
+    const imgY = scrollHelper.getTopCoord(el);
     const imgH = el.offsetHeight;
 
     // If block is shown on screen
@@ -52,9 +42,5 @@ export class Parallax {
 
       el.style.setProperty(this.positionVarName, `${position.toFixed(2)}%`);
     }
-  }
-
-  private getTopCoord(elem: HTMLElement): number {
-    return elem.getBoundingClientRect().top + pageYOffset;
   }
 }

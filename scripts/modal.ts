@@ -1,3 +1,5 @@
+import {getCollection} from "./helpers";
+
 export class Modal {
   element: HTMLElement;
 
@@ -5,8 +7,10 @@ export class Modal {
     this.element = document.getElementById('modal');
     this.element.querySelector('.modal__close').addEventListener('click', () => this.hide());
     this.element.querySelector('.modal__subscribe').addEventListener('click', () => this.subscribe());
-    Array.from(document.querySelectorAll('[show-modal]')).forEach(el => {
+
+    getCollection('[show-modal]').forEach(el => {
       el.addEventListener('click', event => {
+        event.preventDefault();
         this.show();
       })
     });

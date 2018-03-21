@@ -1,3 +1,5 @@
+import {getCollection, scrollHelper, WinPositions} from "./helpers";
+
 interface imgItem {
   el: HTMLImageElement
   src: string,
@@ -10,34 +12,25 @@ export class LazyLoading {
   itemsInProgress: imgItem[] = [];
 
   constructor(selector = '.lazy,[data-bg]') {
-    Array.from(document.querySelectorAll(selector)).forEach((el: HTMLImageElement) => {
+    getCollection(selector).forEach((el: HTMLImageElement) => {
       this.items.push({el, src: el.dataset.src, bg: el.dataset.bg});
     });
     this.init();
   }
 
   init() {
-    //TODO move it to general scroll/resize class
-    document.addEventListener('scroll', () => requestAnimationFrame(this.handleScroll), {passive: true});
-    window.addEventListener('resize', () => {
-      this.winHeight = innerHeight;
-      requestAnimationFrame(this.handleScroll);
-    });
-    this.handleScroll();
+    scrollHelper.subscribe(this.handleScroll);
   }
 
-  handleScroll = () => {
-    const winY = scrollY;
-    const winBottom = winY + this.winHeight;
-    const winPos = {winY, winBottom};
+  handleScroll = (winPos: WinPositions) => {
     for (let i = this.items.length - 1; i >= 0; i--) {
       this.loadItem(this.items[i], winPos)
     }
   };
 
-  loadItem(item: imgItem, winPos) {
+  loadItem(item: imgItem, winPos: WinPositions) {
     const el = item.el;
-    const imgY = this.getTopCoord(el);
+    const imgY = scrollHelper.getTopCoord(el);
     const offset = 800;
 
     // If block is shown on screen
@@ -59,9 +52,5 @@ export class LazyLoading {
       item.el.classList.add('active');
     };
     img.src = item.src || item.bg;
-  }
-
-  private getTopCoord(elem: HTMLElement): number {
-    return elem.getBoundingClientRect().top + pageYOffset;
   }
 }
