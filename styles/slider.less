@@ -1,3 +1,5 @@
+@import "./variables";
+
 @keyframes slide {
   from {
     opacity: 0;
@@ -32,6 +34,12 @@
     line-height: 0;
     outline: none;
     color: #fff;
+
+    .arrow-circle {
+      @media (max-width: @media-small) {
+        display: none;
+      }
+    }
 
     &--left {
 

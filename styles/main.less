@@ -1,3 +1,5 @@
+@import "./variables";
+
 body, html {
   min-height: 100%;
   margin: 0;
@@ -5,8 +7,14 @@ body, html {
 }
 
 body {
-  --angle-param: 300px;
+  --angle-param: 100px;
   --angle-coord: ~'calc(100% - var(--angle-param))';
+  @media (min-width: @media-medium) {
+    --angle-param: 200px;
+  }
+  @media (min-width: @media-normal) {
+    --angle-param: 300px;
+  }
 }
 
 * {
@@ -21,15 +29,18 @@ body {
   display: flex;
   justify-content: center;
   position: relative;
-  overflow: hidden;
-
 }
 
 .container {
-  width: 1170px;
+  width: 85%;
   position: relative;
   max-width: 100%;
   z-index: 3;
+  overflow: hidden;
+
+  @media (min-width: @media-normal) {
+    width: 1170px;
+  }
 }
 
 .figure {
