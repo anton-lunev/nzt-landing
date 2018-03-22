@@ -5,6 +5,7 @@ html {
   font-family: 'Montserrat', sans-serif;
 }
 body {
+  --position: 50%;
   --angle-param: 300px;
   --angle-coord: calc(100% - var(--angle-param));
 }
@@ -1127,7 +1128,7 @@ body {
   z-index: -1;
 }
 .block-6-step__number {
-  margin-top: 20px;
+  margin-top: 30px;
   color: #ffffff;
   font-size: 20px;
   font-weight: 800;
@@ -1146,6 +1147,7 @@ body {
     font-size: 45px;
     width: 70px;
     height: 70px;
+    margin-top: 50px;
   }
 }
 .block-6-step__content {
