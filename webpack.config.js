@@ -5,12 +5,10 @@ const path = require('path');
 const extractLess = new ExtractTextPlugin({
   filename: "styles.[contenthash].css",
   allChunks: true
-  // disable: process.env.NODE_ENV === "development"
 });
 
 module.exports = {
   entry: './scripts/index.ts',
-  devtool: process.env.NODE_ENV === 'development' ? "inline-source-map" : 'none',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.[chunkhash].js'

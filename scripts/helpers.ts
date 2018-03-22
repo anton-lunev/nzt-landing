@@ -1,3 +1,5 @@
+import Scrollbar from "smooth-scrollbar";
+
 export interface WinPositions {
   winY: number,
   winBottom: number
@@ -7,11 +9,19 @@ class ScrollHelper {
   static instance;
   winHeight = innerHeight;
   subscriptions = [];
+  scrollbar: Scrollbar;
+  scrollY = 0;
 
   constructor() {
     if (ScrollHelper.instance) return ScrollHelper.instance;
 
-    document.addEventListener('scroll', () => requestAnimationFrame(this.handleScroll), {passive: true});
+    this.scrollbar = Scrollbar.init(document.querySelector('body'), {});
+    this.scrollbar.addListener(({offset}) => {
+      this.scrollY = offset.y;
+      requestAnimationFrame(this.handleScroll);
+    });
+
+    // document.addEventListener('scroll', () => requestAnimationFrame(this.handleScroll), {passive: true});
     window.addEventListener('resize', () => {
       this.winHeight = innerHeight;
       requestAnimationFrame(this.handleScroll);
@@ -26,7 +36,7 @@ class ScrollHelper {
   };
 
   private getPositions(): WinPositions {
-    const winY = scrollY;
+    const winY = this.scrollY;
     const winBottom = winY + this.winHeight;
     return {winY, winBottom};
   }
@@ -41,7 +51,7 @@ class ScrollHelper {
   }
 
   getTopCoord(elem: HTMLElement): number {
-    return elem.getBoundingClientRect().top + pageYOffset;
+    return elem.getBoundingClientRect().top + this.scrollY;
   }
 }
 
