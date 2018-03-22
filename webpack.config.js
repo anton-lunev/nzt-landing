@@ -10,10 +10,10 @@ const extractLess = new ExtractTextPlugin({
 
 module.exports = {
   entry: './scripts/index.ts',
-  devtool: "inline-source-map",
+  devtool: process.env.NODE_ENV === 'development' ? "inline-source-map" : 'none',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.[contenthash].js'
+    filename: 'bundle.[chunkhash].js'
   },
   resolve: {
     extensions: [".ts", ".js"]
@@ -37,7 +37,7 @@ module.exports = {
         use: {
           loader: 'html-loader',
           options: {
-            attrs: [':data-src', ':data-bg']
+            attrs: [':src', ':data-src', ':data-bg']
           }
         }
       },
