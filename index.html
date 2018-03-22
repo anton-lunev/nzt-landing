@@ -10,7 +10,7 @@
 <body>
 <div class="block block-1" data-bg="images/block-1/bg-first-screen.jpg">
   <div class="container block-1__container">
-    <div class="block-1__header header">
+    <div class="block-1__header header animated bottom" data-delay="700">
       <div class="header__logo">
         <img class="lazy" data-src="images/block-1/logo.png" width="131" alt="NztCoin">
       </div>
@@ -26,15 +26,19 @@
     </div>
 
     <div class="block-1__content b1-content">
-      <img class="lazy b1-content__logo" data-src="images/block-1/logo.png" alt="NztCoin">
+      <div class="animated bottom" data-delay="1400">
+        <img class="lazy b1-content__logo" data-src="images/block-1/logo.png" alt="NztCoin">
+      </div>
       <div class="b1-content__container">
-        <p class="b1-content__text">Новая волна в мире международного интернет-бизнеса</p>
-        <div class="b1-content__video video">
+        <p class="b1-content__text animated bottom" data-delay="1000">
+          Новая волна в мире международного интернет-бизнеса
+        </p>
+        <div class="b1-content__video video animated scale" data-delay="2100" show-modal>
           <img class="lazy video__button" data-src="images/block-1/play-button.svg" alt="watch video">
           <span class="video__title">Смотреть видео</span>
         </div>
       </div>
-      <div class="b1-content__app-links">
+      <div class="b1-content__app-links animated left" data-delay="1800">
         <div class="app-links">
           <span class="app-links__title">Альфа-версия доступна в:</span>
           <a href="#" class="app-links__button" show-modal>
@@ -57,13 +61,13 @@
     </div>
 
     <img data-src="images/block-1/ellipse.png" class="block-1__figure figure prlx lazy"/>
-    <img data-src="images/block-1/block1_path-circle.svg" class="lazy block-1__path"/>
+    <img data-src="images/block-1/block1_path-circle.svg" class="lazy block-1__path prlx" data-speed=".4"/>
   </div>
 </div>
 
 <div class="block block-2" data-bg="images/block-2/block2_bg.jpg">
   <div class="container block-2__container">
-    <div class="block-2__21 block-2-21">
+    <div class="block-2__21 block-2-21 prlx" data-speed="0.5">
       <img class="lazy block-2-21__img" data-src="./images/block-2/21-century.png" alt="XXI век">
       <div class="block-2-21__text">
         <span class="block-2-21__text-elem">Становись</span>
@@ -71,7 +75,7 @@
         <span class="block-2-21__text-elem">человеком</span>
       </div>
     </div>
-    <div class="block-2__icons block-2-icons">
+    <div class="block-2__icons block-2-icons animated scale" data-delay="400">
       <img class="lazy block-2-icons__img block-2-icons__img-d" data-src="./images/block-2/block2-people.png">
       <img class="lazy block-2-icons__img block-2-icons__img-m" data-src="./images/block-2/block2-people-m.png">
       <span class="block-2-icons__text block-2-icons__text--1">Blockchain</span>
@@ -81,7 +85,7 @@
       <span class="block-2-icons__text block-2-icons__text--5">ICO</span>
       <span class="block-2-icons__text block-2-icons__text--6">Социальные сети</span>
     </div>
-    <div class="block-2__100 block-2-100" data-bg="images/block-2/block2-100.png">
+    <div class="block-2__100 block-2-100 animated left" data-delay="400" data-bg="images/block-2/block2-100.png">
       <div class="block-2-100__content-text">Живи на 100% вместе с&nbsp;приложением Nztcoin</div>
       <div class="block-2-100__text block-2-100__text--1">Знакомства</div>
       <div class="block-2-100__text block-2-100__text--2">Свобода</div>
@@ -250,7 +254,7 @@
     <div class="block-6__bottom">
       <div class="block-6__bottom-step block-6-step">
         <div class="block-6-step__left">
-          <div class="block-6-step__number">1</div>
+          <div class="block-6-step__number prlx" data-speed="1">1</div>
         </div>
         <div class="block-6-step__content">
           <div class="block-6-step__title">Цифровая франшиза</div>
@@ -262,7 +266,7 @@
       </div>
       <div class="block-6__bottom-step block-6-step">
         <div class="block-6-step__left">
-          <div class="block-6-step__number">2</div>
+          <div class="block-6-step__number prlx" data-speed="1">2</div>
         </div>
         <div class="block-6-step__content">
           <div class="block-6-step__title">100 целей на жизнь</div>
@@ -275,7 +279,7 @@
       </div>
       <div class="block-6__bottom-step block-6-step">
         <div class="block-6-step__left">
-          <div class="block-6-step__number">3</div>
+          <div class="block-6-step__number prlx" data-speed="1">3</div>
         </div>
         <div class="block-6-step__content">
           <div class="block-6-step__title">Знакомства</div>
@@ -288,7 +292,7 @@
       </div>
       <div class="block-6__bottom-step block-6-step">
         <div class="block-6-step__left">
-          <div class="block-6-step__number">4</div>
+          <div class="block-6-step__number prlx" data-speed="1">4</div>
         </div>
         <div class="block-6-step__content">
           <div class="block-6-step__title">Неограниченный доход</div>

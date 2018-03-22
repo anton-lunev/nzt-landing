@@ -36,6 +36,10 @@ class ScrollHelper {
     cb(this.getPositions());
   }
 
+  unsubscribe(cb) {
+    this.subscriptions.splice(this.subscriptions.indexOf(cb), 1);
+  }
+
   getTopCoord(elem: HTMLElement): number {
     return elem.getBoundingClientRect().top + pageYOffset;
   }

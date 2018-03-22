@@ -13,3 +13,48 @@
     opacity: 1;
   }
 }
+
+.animated {
+  opacity: 0;
+  transition-property: transform, opacity;
+  transition-duration: .35s;
+
+  &.show {
+    opacity: 1;
+  }
+
+  &.top {
+    transform: translateY(10px);
+    &.show {
+      transform: translateY(0);
+    }
+  }
+
+  &.bottom {
+    transform: translateY(-10px);
+    &.show {
+      transform: translateY(0);
+    }
+  }
+
+  &.left {
+    transform: translateX(10px);
+    &.show {
+      transform: translateY(0);
+    }
+  }
+
+  &.right {
+    transform: translateX(-10px);
+    &.show {
+      transform: translateY(0);
+    }
+  }
+
+  &.scale {
+    transform: scale(.9);
+    &.show {
+      transform: scale(1);
+    }
+  }
+}

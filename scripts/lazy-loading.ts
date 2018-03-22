@@ -26,6 +26,7 @@ export class LazyLoading {
     for (let i = this.items.length - 1; i >= 0; i--) {
       this.loadItem(this.items[i], winPos)
     }
+    if (!this.items.length) scrollHelper.unsubscribe(this.handleScroll);
   };
 
   loadItem(item: imgItem, winPos: WinPositions) {

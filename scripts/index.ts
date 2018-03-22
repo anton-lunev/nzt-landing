@@ -12,6 +12,7 @@ import '../styles/block-6.less';
 import '../styles/block-7.less';
 import '../styles/block-8.less';
 import '../styles/block-9.less';
+import {LazyShowing} from "./lazy-showing";
 import {Modal} from "./modal";
 
 import {Slider} from "./slider";
@@ -26,3 +27,4 @@ const slider4 = new Slider('.b4-slider');
 new LazyLoading();
 new Parallax();
 new Modal();
+new LazyShowing();
