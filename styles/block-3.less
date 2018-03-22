@@ -84,8 +84,16 @@
     left: 40%;
   }
   &-7 {
-    bottom: 540px;
+    bottom: ~'calc(var(--angle-param) + 190px)';
     right: 0;
+    width: 70px;
+
+    @media (min-width: @media-medium) {
+      width: auto;
+    }
+    @media (min-width: @media-medium) {
+      bottom: 540px;
+    }
   }
   &-8 {
     bottom: 50px;
