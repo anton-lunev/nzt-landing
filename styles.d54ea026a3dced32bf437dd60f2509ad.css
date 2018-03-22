@@ -924,14 +924,9 @@ body {
 @media (min-width: 1400px) {
   .block-5__top {
     position: absolute;
-    top: -118px;
-    left: 202px;
+    top: -58px;
+    left: 622px;
     margin-bottom: 0;
-  }
-}
-@media (min-width: 1600px) {
-  .block-5__top {
-    left: -230px;
   }
 }
 .block-5__top:before {
@@ -1256,12 +1251,10 @@ body {
 .b7-description__button {
   background-color: #29bae3;
   padding: 25px 45px;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: space-between;
   border-radius: 3px;
-  margin: auto;
-  align-self: center;
 }
 .b7-description__button span {
   margin-left: 20px;
@@ -1324,7 +1317,7 @@ body {
 @media (min-width: 1400px) {
   .block-8__container {
     width: 1180px;
-    height: 800px;
+    height: 760px;
   }
 }
 .block-8__container img {
