@@ -46,7 +46,6 @@ module.exports = {
     ]
   },
   plugins: [
-    // new webpack.optimize.UglifyJsPlugin(),
     new HtmlWebpackPlugin({template: './index.html'}),
     extractLess
   ]

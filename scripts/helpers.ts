@@ -7,27 +7,36 @@ export interface WinPositions {
 
 class ScrollHelper {
   static instance;
-  winHeight = innerHeight;
-  subscriptions = [];
-  scrollbar: Scrollbar;
-  scrollY = 0;
+  private isWindows = navigator.userAgent.includes("Windows");
+  private winHeight = innerHeight;
+  private subscriptions = [];
+  private scrollY = 0;
 
   constructor() {
     if (ScrollHelper.instance) return ScrollHelper.instance;
+    this.initEvents();
+    ScrollHelper.instance = this;
+  }
 
-    this.scrollbar = Scrollbar.init(document.querySelector('body'), {});
-    this.scrollbar.addListener(({offset}) => {
-      this.scrollY = offset.y;
-      requestAnimationFrame(this.handleScroll);
-    });
+  private initEvents() {
+    if (this.isWindows) {
+      document.body.classList.add('custom-scroll');
+      const scrollbar = Scrollbar.init(document.body);
+      scrollbar.addListener(({offset}) => {
+        this.scrollY = offset.y;
+        requestAnimationFrame(this.handleScroll);
+      });
+    } else {
+      document.addEventListener('scroll', () => {
+        this.scrollY = pageYOffset;
+        requestAnimationFrame(this.handleScroll);
+      }, {passive: true});
+    }
 
-    // document.addEventListener('scroll', () => requestAnimationFrame(this.handleScroll), {passive: true});
     window.addEventListener('resize', () => {
       this.winHeight = innerHeight;
       requestAnimationFrame(this.handleScroll);
     });
-
-    ScrollHelper.instance = this;
   }
 
   private handleScroll = () => {
