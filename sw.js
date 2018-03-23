@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.0.1/workbox-sw.js");
 
 importScripts(
-  "precache-manifest.4898014417cb13754aad59d40c5f9aed.js"
+  "precache-manifest.5e49716b79693789156e7f016bfcc833.js"
 );
 
 workbox.skipWaiting();
@@ -29,4 +29,5 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
+workbox.routing.registerRoute(/\.(?:png|jpg|jpeg|svg|css|js)$/, workbox.strategies.cacheFirst(), 'GET');
 workbox.routing.registerRoute(/https:\/\/fonts.(googleapis|gstatic).com/, workbox.strategies.staleWhileRevalidate(), 'GET');
