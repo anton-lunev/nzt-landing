@@ -7,11 +7,6 @@ html {
 body {
   --angle-param: 100px;
   --angle-coord: calc(100% - var(--angle-param));
-  position: fixed !important;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
 }
 @media (min-width: 1000px) {
   body {
@@ -22,6 +17,13 @@ body {
   body {
     --angle-param: 300px;
   }
+}
+.custom-scroll {
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 * {
   box-sizing: border-box;
