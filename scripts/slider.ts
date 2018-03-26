@@ -5,8 +5,8 @@ const arrowIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="39" height="39
   <path fill="currentColor" stroke="currentColor" d="M23 25.42l-1.185 1.19-7.106-7.11 7.106-7.11L23 13.58l-5.923 5.92z"/>
 </svg>`;
 
-const leftArrow = `<button class="slider__button slider__button--left">${arrowIcon}</button>`;
-const rightArrow = `<button class="slider__button slider__button--right">${arrowIcon}</button>`;
+const leftArrow = `<button name="slide_left" class="slider__button slider__button--left">${arrowIcon}</button>`;
+const rightArrow = `<button name="slide_right" class="slider__button slider__button--right">${arrowIcon}</button>`;
 
 function parseDom(string: string): HTMLElement {
   const doc = new DOMParser().parseFromString(string, "text/html");
