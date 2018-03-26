@@ -60,7 +60,7 @@ module.exports = {
       background_color: '#29bae3',
       theme_color: '#29bae3',
       lang: "ru-RU",
-      start_url: 'https://anton-lunev.github.io/nzt-landing/',
+      start_url: 'https://nztcoin.com/',
       orientation: "portrait",
       display: "standalone",
       icons: [
