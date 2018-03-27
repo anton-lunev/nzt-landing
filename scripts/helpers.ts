@@ -20,8 +20,9 @@ class ScrollHelper {
 
   private initEvents() {
     if (this.isWindows) {
-      document.body.classList.add('custom-scroll');
-      const scrollbar = Scrollbar.init(document.body);
+      const el = document.querySelector('#scroll-wrapper') as HTMLElement;
+      el.classList.add('custom-scroll');
+      const scrollbar = Scrollbar.init(el);
       scrollbar.addListener(({offset}) => {
         this.scrollY = offset.y;
         requestAnimationFrame(this.handleScroll);
