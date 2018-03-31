@@ -17,7 +17,17 @@ export class Modal {
   }
 
   subscribe() {
-
+    import(/* webpackChunkName: "firebase" */'firebase/app').then(firebase => {
+      console.log(firebase);
+      firebase.initializeApp({
+        apiKey: "AIzaSyDREXeKct-7pvIL4Pd4b1NefLJx9Q9yrQI",
+        authDomain: "api-project-76220702.firebaseapp.com",
+        databaseURL: "https://api-project-76220702.firebaseio.com",
+        projectId: "api-project-76220702",
+        storageBucket: "api-project-76220702.appspot.com",
+        messagingSenderId: "944218460441"
+      });
+    });
     this.hide();
   }
 

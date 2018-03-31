@@ -1,5 +1,3 @@
-import Scrollbar from "smooth-scrollbar";
-
 export interface WinPositions {
   winY: number,
   winBottom: number
@@ -19,13 +17,15 @@ class ScrollHelper {
   }
 
   private initEvents() {
-    if (this.isWindows) {
-      const el = document.querySelector('#scroll-wrapper') as HTMLElement;
-      el.classList.add('custom-scroll');
-      const scrollbar = Scrollbar.init(el);
-      scrollbar.addListener(({offset}) => {
-        this.scrollY = offset.y;
-        requestAnimationFrame(this.handleScroll);
+    if (!this.isWindows) {
+      import(/* webpackChunkName: "scrollbar" */'smooth-scrollbar').then((Scrollbar) => {
+        const el = document.querySelector('#scroll-wrapper') as HTMLElement;
+        el.classList.add('custom-scroll');
+        const scrollbar = Scrollbar.default.init(el);
+        scrollbar.addListener(({offset}) => {
+          this.scrollY = offset.y;
+          requestAnimationFrame(this.handleScroll);
+        });
       });
     } else {
       document.addEventListener('scroll', () => {

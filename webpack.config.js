@@ -13,14 +13,15 @@ module.exports = {
   entry: './scripts/index.ts',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.[chunkhash].js'
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js'
   },
   resolve: {
     extensions: [".ts", ".js"]
   },
   module: {
     rules: [
-      {test: /\.ts/, use: 'ts-loader'},
+      {test: /\.ts/, include: path.join(__dirname, "scripts"), use: 'ts-loader'},
       {
         test: /\.less/,
         use: extractLess.extract({
