@@ -1,3 +1,6 @@
+@import "./variables";
+
+
 .block-1 {
   --side-padding: 78px;
   clip-path: polygon(0 0, 100% 0, 100% var(--angle-coord), 0% 100%);
@@ -8,19 +11,33 @@
   position: relative;
 
   &__container {
-    width: 1326px;
+    overflow: hidden;
+    width: 100%;
+
+    @media (min-width: @media-normal) {
+      width: 1326px;
+    }
   }
 
   &__header {
-    margin-top: 55px;
+    margin-top: 22px;
     width: 100%;
-    padding: 0 var(--side-padding);
+    padding: 0 18px;
+
+    @media (min-width: @media-medium) {
+      margin-top: 55px;
+      padding: 0 var(--side-padding);
+    }
   }
 
   &__content {
-    padding: 0 var(--side-padding);
-    margin-top: 225px;
-    margin-bottom: 436px;
+    margin-top: 120px;
+
+    @media (min-width: @media-medium) {
+      padding: 0 var(--side-padding);
+      margin-top: 225px;
+      margin-bottom: 436px;
+    }
   }
 
   &__slider {
@@ -36,8 +53,9 @@
 
   &__figure {
     position: absolute;
-    bottom: 500px;
-    left: -60px;
+    bottom: 350px;
+    left: 43px;
+    z-index: 3;
   }
 }
 
@@ -57,7 +75,12 @@
 }
 
 .menu {
-  display: flex;
+  display: none;
+
+  @media (min-width: @media-normal) {
+    display: flex;
+  }
+
   &__item {
     color: #fff;
     text-decoration: none;
@@ -82,24 +105,41 @@
 }
 
 .b1-content {
+
   &__logo {
-    min-height: 55px;
-    margin-bottom: 58px;
+    margin-bottom: 55px;
+    max-width: 100%;
   }
   &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 150px;
+    margin: 0 auto 110px;
+    width: 214px;
+
+    @media (min-width: @media-medium) {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: 100%;
+      margin-bottom: 150px;
+    }
+  }
+
+  &__left {
+    flex-basis: 62%;
+    margin: 10px 0 0 0;
   }
 
   &__text {
     color: #fff;
-    font-size: 35px;
-    flex-basis: 62%;
     font-weight: 500;
-    margin: 10px 0 0 0;
-    line-height: 50px;
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+
+    @media (min-width: @media-medium) {
+      font-size: 35px;
+      line-height: 50px;
+      text-align: left;
+    }
   }
 
   &__video {
@@ -112,9 +152,15 @@
 }
 
 .video {
-  display: flex;
   align-items: center;
   color: #fff;
+  display: none;
+
+  @media (min-width: @media-medium) {
+    display: flex;
+  }
+
+
   &__button {
     margin-right: 27px;
   }
@@ -130,11 +176,27 @@
   background: #252d34;
   border-radius: 3px;
   padding: 20px 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  @media (min-width: @media-medium) {
+    justify-content: flex-start;
+    display: inline-flex;
+    flex-wrap: nowrap;
+  }
 
   &__title {
     color: #fff;
     font-weight: 500;
-    margin-right: 40px;
+    flex: 0 0 100%;
+    margin-bottom: 28px;
+    text-align: center;
+
+    @media (min-width: @media-medium) {
+      margin: 0 40px 0 0;
+      text-align: left;
+      flex: 0 0 auto;
+    }
   }
   &__button {
     line-height: 0;
