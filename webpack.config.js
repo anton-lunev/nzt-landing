@@ -5,7 +5,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 const extractLess = new ExtractTextPlugin({
-  filename: "styles.[contenthash].css",
+  filename: "styles.[hash].css",
   allChunks: true
 });
 
