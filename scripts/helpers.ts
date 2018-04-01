@@ -17,7 +17,7 @@ class ScrollHelper {
   }
 
   private initEvents() {
-    if (!this.isWindows) {
+    if (this.isWindows) {
       import(/* webpackChunkName: "scrollbar" */'smooth-scrollbar').then((Scrollbar) => {
         const el = document.querySelector('#scroll-wrapper') as HTMLElement;
         el.classList.add('custom-scroll');
