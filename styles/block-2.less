@@ -4,7 +4,9 @@
 
   margin-top: calc(var(--angle-param) * -1);
   clip-path: polygon(0 var(--angle-param), 100% 0, 100% var(--angle-coord), 0% 100%);
-  background: top center no-repeat;
+  background-color: #181d22;
+  background-position: top center;
+  background-repeat: no-repeat;
   background-size: cover;
   padding: ~'calc(var(--angle-param) + 40px)' 0 ~'calc(var(--angle-param) + 70px)';
   align-items: flex-start;
@@ -37,8 +39,8 @@
 }
 
 .block-2-21 {
-  position: relative;
   text-align: center;
+  position: static !important;
 
   &__img {
     margin: auto;
@@ -74,16 +76,20 @@
 .block-2-icons {
   position: relative;
   text-align: center;
-  width: 285px;
   margin: auto;
+  width: 100%;
+  max-width: 285px;
 
   @media (min-width: @media-medium) {
     height: 700px;
-    width: 100%;
+    max-width: unset;
+    margin: 0 0 0 auto;
   }
 
   &__img {
     margin: 0 auto;
+    width: 100%;
+
     &-d {
       display: none;
       @media (min-width: @media-medium) {
