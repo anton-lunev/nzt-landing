@@ -91,11 +91,11 @@ module.exports = {
       runtimeCaching: [
         {
           urlPattern: /\.(?:png|jpg|jpeg|svg|css|js)$/,
-          handler: 'cacheFirst',
+          handler: 'networkFirst',//TODO change after implementation is done
         },
         {
           urlPattern: new RegExp('https://fonts.(googleapis|gstatic).com'),
-          handler: 'staleWhileRevalidate'
+          handler: 'cacheFirst'
         }
       ]
     }),
