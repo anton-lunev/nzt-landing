@@ -24,6 +24,7 @@ enum selectors {
 
 export class Slider {
   animationTime = 400;
+  interval = 4000;
   container: HTMLElement;
   slides: HTMLCollection;
   buttonPrev = parseDom(leftArrow) as HTMLButtonElement;
@@ -31,10 +32,12 @@ export class Slider {
   activeSlide: Element;
   timer: number;
 
-  constructor(selector) {
+  constructor(selector, options: any = {}) {
     this.container = document.querySelector(selector);
     this.container.classList.add(selectors.slider);
     this.slides = this.container.firstElementChild.children;
+
+    if (options.interval) this.interval = options.interval;
 
     this.initActiveSlide();
     this.init();
@@ -84,7 +87,7 @@ export class Slider {
       if (!this.timer) {
         this.restartTimer();
       }
-    } else if(this.timer) {
+    } else if (this.timer) {
       this.stopTimer();
     }
   };
@@ -118,6 +121,6 @@ export class Slider {
 
   private restartTimer = () => {
     this.stopTimer();
-    this.timer = setInterval(this.next, 4000);
+    this.timer = setInterval(this.next, this.interval);
   }
 }
