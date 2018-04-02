@@ -76,6 +76,9 @@
     font-size: 30px;
     font-weight: 600;
     margin-bottom: 80px;
+    @media (max-width: @media-small) {
+      font-size: 27px;
+    }
   }
 
   &__button {
@@ -91,11 +94,18 @@
       margin-left: 20px;
       text-transform: uppercase;
     }
+    @media (max-width: @media-small) {
+      padding: 25px 25px;
+      span {
+        font-size: 15px;
+        font-weight: 600;
+      }
+    }
   }
 }
 
 .b7-prlx {
-  bottom: calc(var(--angle-param) * -1 + 200px);
+  bottom: calc(var(--angle-param) * -1 - 40px);
   left: -350px;
   transform: translateX(50%);
   width: 700px;
@@ -108,7 +118,7 @@
 
   &__wrapper {
     position: relative;
-    height: 400px;
+    height: 530px;
     margin-left: 50%;
     @media (min-width: @media-medium) {
       height: unset;

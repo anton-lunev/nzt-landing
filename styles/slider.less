@@ -73,3 +73,17 @@
     }
   }
 }
+
+@media (max-width: @media-small) {
+  .no-mobile .slider {
+    &__button {
+      display: none;
+    }
+    &__slide {
+      display: block;
+      &.active {
+        animation: none !important;
+      }
+    }
+  }
+}
