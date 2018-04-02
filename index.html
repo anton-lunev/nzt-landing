@@ -794,9 +794,11 @@
     <a href="https://t.me/nztcoin" target="_blank">
       <img src="images/modal/telegram-icon.png" class="modal__icon" width="95" height="95" alt="telegram icon"/>
     </a>
-    <input class="input modal__input" placeholder="E-mail" aria-label="email"/>
-    <input class="input modal__input" placeholder="Телефон" aria-label="phone"/>
-    <button name="subscribe" class="button modal__subscribe">подписаться</button>
+    <form>
+      <input class="input modal__input" name="email" type="email" placeholder="E-mail" aria-label="email" required/>
+      <input class="input modal__input" name="phone" placeholder="Телефон" aria-label="phone" required/>
+      <button type="submit" name="subscribe" class="button modal__subscribe">подписаться</button>
+    </form>
   </div>
 </div>
 
