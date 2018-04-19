@@ -24,7 +24,7 @@ enum selectors {
 
 export class Slider {
   animationTime = 400;
-  interval = 4000;
+  interval = 8000;
   container: HTMLElement;
   slides: HTMLCollection;
   buttonPrev = parseDom(leftArrow) as HTMLButtonElement;

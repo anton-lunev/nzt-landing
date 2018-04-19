@@ -23,7 +23,7 @@ import {LazyLoading} from "./lazy-loading";
 const slider1 = new Slider('.b1-slider');
 const slider3 = new Slider('.b3-slider');
 const slider4 = new Slider('.b4-slider');
-const slider5 = new Slider('.b8-slider', {interval: 3000});
+const slider5 = new Slider('.b8-slider', {interval: 6000});
 
 new LazyLoading();
 new Parallax();
