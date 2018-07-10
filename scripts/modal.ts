@@ -2,23 +2,39 @@ import {getCollection} from "./helpers";
 
 export class Modal {
   element: HTMLElement;
-  form: HTMLFormElement;
 
-  constructor(selector = 'modal') {
-    this.element = document.getElementById('modal');
-    this.form = this.element.querySelector('form');
-
+  constructor(id) {
+    this.element = document.getElementById(id);
     this.element.querySelector('.modal__close').addEventListener('click', () => this.hide());
-    this.form.addEventListener('submit', (event) => {
-      event.preventDefault();
-      this.subscribe()
-    });
 
-    getCollection('[show-modal]').forEach(el => {
+    getCollection(`[show-${id}]`).forEach(el => {
       el.addEventListener('click', event => {
         event.preventDefault();
         this.show();
       })
+    });
+  }
+
+  show() {
+    this.element.classList.add('active');
+  }
+
+  hide() {
+    this.element.classList.remove('active');
+  }
+}
+
+export class SubscribeModal extends Modal {
+  form: HTMLFormElement;
+
+  constructor(id) {
+    super(id);
+
+    this.form = this.element.querySelector('form');
+
+    this.form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      this.subscribe()
     });
   }
 
@@ -46,13 +62,5 @@ export class Modal {
   private getData(): { email?: string, phone?: string } {
     return getCollection('input', this.form)
       .reduce((res, item: HTMLInputElement) => ({...res, [item.name]: item.value}), {});
-  }
-
-  show() {
-    this.element.classList.add('active');
-  }
-
-  hide() {
-    this.element.classList.remove('active');
   }
 }

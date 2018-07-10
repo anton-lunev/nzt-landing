@@ -13,7 +13,7 @@ import '../styles/block-7.less';
 import '../styles/block-8.less';
 import '../styles/block-9.less';
 import {LazyShowing} from "./lazy-showing";
-import {Modal} from "./modal";
+import {Modal, SubscribeModal} from "./modal";
 
 import {Slider} from "./slider";
 import {Parallax} from "./parallax";
@@ -27,5 +27,6 @@ const slider5 = new Slider('.b8-slider', {interval: 6000});
 
 new LazyLoading();
 new Parallax();
-new Modal();
+new SubscribeModal('subscription-modal');
+new Modal('video-modal');
 new LazyShowing();
