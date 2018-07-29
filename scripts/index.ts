@@ -12,6 +12,7 @@ import '../styles/block-6.less';
 import '../styles/block-7.less';
 import '../styles/block-8.less';
 import '../styles/block-9.less';
+import {BgVideo} from "./bg-video";
 import {LazyShowing} from "./lazy-showing";
 import {Modal, SubscribeModal} from "./modal";
 
@@ -30,3 +31,4 @@ new Parallax();
 new SubscribeModal('subscription-modal');
 new Modal('video-modal');
 new LazyShowing();
+new BgVideo({id:'bg-video', videoId: 'nVh-3IIT6zw'});

@@ -13,6 +13,10 @@ export class Modal {
         this.show();
       })
     });
+
+    document.addEventListener('keyup', e => {
+      if (e.keyCode == 27) this.hide();
+    });
   }
 
   show() {
