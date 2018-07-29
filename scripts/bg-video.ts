@@ -45,9 +45,8 @@ export class BgVideo {
   };
 
   resize() {
-    console.log('resize');
-    let width = innerWidth;
-    let height = innerHeight;
+    const width = innerWidth;
+    const height = innerHeight;
     const ratio = 16 / 9;
 
     // when screen aspect ratio differs from video, video must center and underlay one dimension
