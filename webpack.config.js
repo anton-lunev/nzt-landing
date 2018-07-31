@@ -84,13 +84,13 @@ module.exports = {
       ]
     }),
     new WorkboxPlugin.GenerateSW({
-      exclude: [/\.(?:png|jpg|jpeg|svg|css|js)$/],
+      exclude: [/\.(?:png|jpg|jpeg|svg|css|js|html)$/],
       swDest: 'sw.js',
       clientsClaim: true,
       skipWaiting: true,
       runtimeCaching: [
         {
-          urlPattern: /\.(?:png|jpg|jpeg|svg|css|js)$/,
+          urlPattern: /\.(?:png|jpg|jpeg|svg|css|js|html)$/,
           handler: 'networkFirst',//TODO change after implementation is done
         },
         {
