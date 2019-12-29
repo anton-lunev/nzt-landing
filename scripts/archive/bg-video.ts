@@ -11,16 +11,14 @@ export class BgVideo {
   init() {
     this.ytPlayer = new window['YT'].Player(this.options.id, {
       videoId: this.options.videoId,
+      width: innerWidth,
       playerVars: {
-        mute: true,
         controls: 0,
         autoplay: 1,
         showinfo: 0,
         modestbranding: 1,
-        width:innerWidth,
         loop: 1,
         rel: 0,
-        wmode: 'transparent'
       },
       events: {
         'onReady': this.onPlayerReady,

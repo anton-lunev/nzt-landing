@@ -1,4 +1,7 @@
-import {getCollection, scrollHelper, WinPositions} from "./helpers";
+import {getCollection, WinPositions} from "../helpers";
+import {ScrollHelper} from "./scroll-helper";
+
+const scrollHelper = new ScrollHelper();
 
 interface imgItem {
   el: HTMLImageElement

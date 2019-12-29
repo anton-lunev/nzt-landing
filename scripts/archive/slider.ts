@@ -1,4 +1,5 @@
-import {getCollection, scrollHelper, WinPositions} from "./helpers";
+import {getCollection, WinPositions} from "../helpers";
+import {ScrollHelper} from "./scroll-helper";
 
 const arrowIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="39" height="39">
   <circle class="arrow-circle" cx="19.5" cy="19.5" r="19" fill="none" stroke="currentColor"/>
@@ -7,6 +8,7 @@ const arrowIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="39" height="39
 
 const leftArrow = `<button name="slide_left" class="slider__button slider__button--left">${arrowIcon}</button>`;
 const rightArrow = `<button name="slide_right" class="slider__button slider__button--right">${arrowIcon}</button>`;
+const scrollHelper = new ScrollHelper();
 
 function parseDom(string: string): HTMLElement {
   const doc = new DOMParser().parseFromString(string, "text/html");
@@ -30,7 +32,7 @@ export class Slider {
   buttonPrev = parseDom(leftArrow) as HTMLButtonElement;
   buttonNext = parseDom(rightArrow) as HTMLButtonElement;
   activeSlide: Element;
-  timer: number;
+  timer: any;
 
   constructor(selector, options: any = {}) {
     this.container = document.querySelector(selector);

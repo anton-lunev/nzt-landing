@@ -1,34 +1,38 @@
-import '../styles/main.less';
-import '../styles/slider.less';
-import '../styles/parallax.less';
-import '../styles/lazy.less';
+import rangeslider from 'rangeslider-js/src'
 import '../styles/modal.less';
-import '../styles/block-1.less';
-import '../styles/block-2.less';
-import '../styles/block-3.less';
-import '../styles/block-4.less';
-import '../styles/block-5.less';
-import '../styles/block-6.less';
-import '../styles/block-7.less';
-import '../styles/block-8.less';
-import '../styles/block-9.less';
-import {BgVideo} from "./bg-video";
-import {LazyShowing} from "./lazy-showing";
-import {Modal, SubscribeModal} from "./modal";
+import '../styles/main.less';
+import {Modal} from "./modal";
 
-import {Slider} from "./slider";
-import {Parallax} from "./parallax";
-import {LazyLoading} from "./lazy-loading";
+window.addEventListener('load', () => {
 
+  new Modal('video-modal');
 
-const slider1 = new Slider('.b1-slider');
-const slider3 = new Slider('.b3-slider');
-const slider4 = new Slider('.b4-slider');
-const slider5 = new Slider('.b8-slider', {interval: 6000});
+  const valuesList = [
+    {
+      value: '$50',
+      result: 'Доход до 1 000$ в неделю',
+    },
+    {
+      value: '$100',
+      result: 'Доход до 5 000$ в неделю',
+    },
+    {
+      value: '$200',
+      result: 'Доход до 25 000$ в неделю',
+    }
+  ];
 
-new LazyLoading();
-new Parallax();
-new SubscribeModal('subscription-modal');
-new Modal('video-modal');
-new LazyShowing();
-new BgVideo({id:'bg-video', videoId: 'nVh-3IIT6zw'});
+  let sliderValue = 1;
+  const moneyValueEl = document.getElementById('money-value');
+  const moneyResultEl = document.getElementById('money-result');
+
+  rangeslider.create(document.getElementById('slider'), {
+    min: 0, max: 2, value: sliderValue, step: 1,
+    onSlide(value) {
+      if (value === sliderValue) return;
+      sliderValue = value;
+      moneyValueEl.innerText = valuesList[value].value;
+      moneyResultEl.innerText = valuesList[value].result;
+    }
+  });
+});
