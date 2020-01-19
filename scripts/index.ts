@@ -17,7 +17,7 @@ window.addEventListener('load', () => {
       result: 'Доход до 5 000$ в неделю',
     },
     {
-      value: '$200',
+      value: '$250',
       result: 'Доход до 25 000$ в неделю',
     }
   ];
