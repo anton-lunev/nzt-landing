@@ -236,7 +236,7 @@ h2 {
 
 .block-2 {
   flex-wrap: wrap;
-  padding-bottom: 100px;
+  padding-bottom: 150px;
   align-items: flex-start;
 
   &__header {
@@ -365,4 +365,45 @@ h2 {
 
 .rangeslider--disabled {
   opacity: 0.4;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: solid 1px #e5e5e5;
+  flex-wrap: wrap;
+  padding: 25px 0;
+
+  @media (min-width: @media-small) {
+    justify-content: space-between;
+  }
+}
+
+.phone-block {
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+
+  &__icon {
+    opacity: .4;
+    margin-right: 12px;
+  }
+  &__number {
+    font-weight: bold;
+    margin-right: 13px;
+    white-space: nowrap;
+  }
+  &__title {
+    white-space: nowrap;
+  }
+}
+
+.payment-options {
+  display: flex;
+  align-items: center;
+  flex: 0;
+  img + img {
+    margin-left: 26px;
+  }
 }
