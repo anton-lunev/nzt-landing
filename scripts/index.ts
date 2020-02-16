@@ -1,4 +1,4 @@
-import rangeslider from 'rangeslider-js/src'
+// import rangeslider from 'rangeslider-js/src'
 import '../styles/modal.less';
 import '../styles/main.less';
 import {Modal} from "./modal";
@@ -7,7 +7,7 @@ window.addEventListener('load', () => {
 
   new Modal('video-modal');
 
-  const valuesList = [
+ /* const valuesList = [
     {
       value: '$50',
       result: 'Доход до 1 000$ в неделю',
@@ -34,5 +34,5 @@ window.addEventListener('load', () => {
       moneyValueEl.innerText = valuesList[value].value;
       moneyResultEl.innerText = valuesList[value].result;
     }
-  });
+  });*/
 });
